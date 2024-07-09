@@ -13,7 +13,7 @@ class CountPlayers extends StatelessWidget {
 
     return Container(
         margin: const EdgeInsets.all(8),
-        width: widthq / 1.5,
+        width: widthq / 1.2,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(25),
           color: Styles.blackwidget,
@@ -23,7 +23,9 @@ class CountPlayers extends StatelessWidget {
           children: [
             Consumer(
               builder: (context, ref, child) => TextButton(
-                onPressed: () => ref.watch(creatgame).addPlayer,
+                onPressed: () {
+                  ref.read(creatgame).addPlayer();
+                },
                 child: text('+'),
               ),
             ),
@@ -35,7 +37,7 @@ class CountPlayers extends StatelessWidget {
             const VerticalDivider(),
             Consumer(
               builder: (context, ref, child) => TextButton(
-                onPressed: () => ref.watch(creatgame).deletPlayer,
+                onPressed: () => ref.read(creatgame).deletPlayer(),
                 child: text('-'),
               ),
             ),

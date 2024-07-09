@@ -7,13 +7,10 @@ final creatgame = ChangeNotifierProvider(
 
 class CearetGame extends ChangeNotifier {
   int palyersCount = 3;
-
+ 
   addPlayer() {
-    if (palyersCount > 3) {
-      palyersCount++;
-    } else if (palyersCount == 3) {
-      palyersCount++;
-    }
+    palyersCount++;
+
     print(palyersCount);
     notifyListeners();
   }

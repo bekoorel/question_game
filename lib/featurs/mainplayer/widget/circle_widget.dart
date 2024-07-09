@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:tools_app/core/style/styles.dart';
 
 import 'package:tools_app/featurs/mainplayer/widget/text_app.dart';
@@ -31,7 +32,7 @@ class CircleWidget extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(2.0),
             child: GestureDetector(
-              onTap: () => print('go'),
+              onTap: () => context.go('Listplayers'),
               child: Container(
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
