@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:tools_app/core/style/styles.dart';
+import 'package:tools_app/featurs/mainplayer/logic/cearet_game.dart';
 
 import 'package:tools_app/featurs/mainplayer/widget/text_app.dart';
+import 'package:tools_app/featurs/players_list/logic/players_list.dart';
 
 class CircleWidget extends StatelessWidget {
   const CircleWidget({super.key});
@@ -31,15 +34,23 @@ class CircleWidget extends StatelessWidget {
         Positioned.fill(
           child: Padding(
             padding: const EdgeInsets.all(2.0),
-            child: GestureDetector(
-              onTap: () => context.go('Listplayers'),
-              child: Container(
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Styles.blackwidget,
+            child: Consumer(
+              builder: (context, ref, child) => GestureDetector(
+                onTap: () {
+                  for (int i = 1; i <= ref.read(creatgame).palyersCount; i++) {
+                    ref.read(playerslist).players.add('اضف اسم اللاعب');
+                  }
+
+                  context.go('/Listplayers');
+                },
+                child: Container(
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Styles.blackwidget,
+                  ),
+                  child: text('START'),
                 ),
-                child: text('START'),
               ),
             ),
           ),

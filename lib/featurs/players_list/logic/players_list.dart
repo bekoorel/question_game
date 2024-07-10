@@ -6,6 +6,22 @@ final playerslist = ChangeNotifierProvider(
 );
 
 class PlayersList extends ChangeNotifier {
-  
-  List <String> players=[];
+  List<String> players = [];
+  int pageNumaper = 0;
+
+  getPageName() {
+    String playerName = players[pageNumaper];
+    pageSelect();
+    if (pageNumaper == players.length) {
+      return true;
+    } else {
+      return playerName;
+    }
+  }
+
+  void pageSelect() {
+    if (pageNumaper <= players.length) {
+      pageNumaper++;
+    }
+  }
 }

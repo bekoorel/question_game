@@ -9,11 +9,7 @@ class CountPlayers extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double widthq = MediaQuery.sizeOf(context).width;
-
     return Container(
-        margin: const EdgeInsets.all(8),
-        width: widthq / 1.2,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(25),
           color: Styles.blackwidget,
